@@ -5,16 +5,16 @@
 //  All rights reserved. Licensed under the MIT license.
 // ==========================================================================
 
-using System;
-
-namespace Squidex.ClientLibrary
+namespace Squidex.ClientLibrary.EnrichedEvents
 {
     /// <summary>
-    /// Annote your data object to keep the casing and to not convert it to camel case.
+    /// Interface IEnrichedEntityEvent.
     /// </summary>
-    /// <seealso cref="Attribute" />
-    [AttributeUsage(AttributeTargets.Class)]
-    public sealed class KeepCasingAttribute : Attribute
+    public interface IEnrichedEntityEvent
     {
+        /// <summary>
+        /// Id.
+        /// </summary>
+        string Id { get; }
     }
 }

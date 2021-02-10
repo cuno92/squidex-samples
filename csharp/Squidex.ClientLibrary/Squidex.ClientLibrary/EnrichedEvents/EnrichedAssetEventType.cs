@@ -5,22 +5,31 @@
 //  All rights reserved. Licensed under the MIT license.
 // ==========================================================================
 
-namespace Squidex.ClientLibrary
+namespace Squidex.ClientLibrary.EnrichedEvents
 {
     /// <summary>
-    /// A graphql response.
+    /// Type of events on an asset.
     /// </summary>
-    /// <typeparam name="TData">The type of the data.</typeparam>
-    public sealed class GraphQlResponse<TData>
+    public enum EnrichedAssetEventType
     {
         /// <summary>
-        /// The data object. Can be null when no result is returned on an error occurred.
+        /// Asset Created.
         /// </summary>
-        public TData Data { get; set; }
+        Created,
 
         /// <summary>
-        /// The errors. Can be null when valid.
+        /// Asset Deleted.
         /// </summary>
-        public GraphQlError[] Errors { get; set; }
+        Deleted,
+
+        /// <summary>
+        /// Asset Annotated.
+        /// </summary>
+        Annotated,
+
+        /// <summary>
+        /// Asset Updated.
+        /// </summary>
+        Updated
     }
 }

@@ -7,14 +7,21 @@
 
 using System;
 
-namespace Squidex.ClientLibrary
+namespace Squidex.ClientLibrary.EnrichedEvents
 {
     /// <summary>
-    /// Annote your data object to keep the casing and to not convert it to camel case.
+    /// Event generated from a comment.
     /// </summary>
-    /// <seealso cref="Attribute" />
-    [AttributeUsage(AttributeTargets.Class)]
-    public sealed class KeepCasingAttribute : Attribute
+    public sealed class EnrichedCommentEvent : EnrichedUserEventBase
     {
+        /// <summary>
+        /// Comment's text.
+        /// </summary>
+        public string Text { get; set; }
+
+        /// <summary>
+        /// Url of the content commented.
+        /// </summary>
+        public Uri Url { get; set; }
     }
 }

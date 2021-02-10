@@ -5,16 +5,21 @@
 //  All rights reserved. Licensed under the MIT license.
 // ==========================================================================
 
-using System;
-
-namespace Squidex.ClientLibrary
+namespace Squidex.ClientLibrary.Utils
 {
     /// <summary>
-    /// Annote your data object to keep the casing and to not convert it to camel case.
+    /// Id with a name.
     /// </summary>
-    /// <seealso cref="Attribute" />
-    [AttributeUsage(AttributeTargets.Class)]
-    public sealed class KeepCasingAttribute : Attribute
+    public class NamedId
     {
+        /// <summary>
+        /// Id.
+        /// </summary>
+        public string Id { get; set; }
+
+        /// <summary>
+        /// Name.
+        /// </summary>
+        public string Name { get; set; }
     }
 }

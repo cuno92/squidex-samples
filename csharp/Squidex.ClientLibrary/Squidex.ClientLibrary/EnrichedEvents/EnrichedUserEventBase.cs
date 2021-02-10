@@ -5,16 +5,20 @@
 //  All rights reserved. Licensed under the MIT license.
 // ==========================================================================
 
-using System;
+using Newtonsoft.Json;
+using Squidex.ClientLibrary.Utils;
 
-namespace Squidex.ClientLibrary
+namespace Squidex.ClientLibrary.EnrichedEvents
 {
     /// <summary>
-    /// Annote your data object to keep the casing and to not convert it to camel case.
+    /// Avstract class for events triggered by an Actor.
     /// </summary>
-    /// <seealso cref="Attribute" />
-    [AttributeUsage(AttributeTargets.Class)]
-    public sealed class KeepCasingAttribute : Attribute
+    public abstract class EnrichedUserEventBase : EnrichedEvent
     {
+        /// <summary>
+        /// Actor who has triggered the event.
+        /// </summary>
+        [JsonConverter(typeof(ActorConverter))]
+        public Actor Actor { get; set; }
     }
 }

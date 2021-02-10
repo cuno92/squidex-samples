@@ -5,22 +5,36 @@
 //  All rights reserved. Licensed under the MIT license.
 // ==========================================================================
 
-namespace Squidex.ClientLibrary
+namespace Squidex.ClientLibrary.EnrichedEvents
 {
     /// <summary>
-    /// A graphql response.
+    /// Schema event types.
     /// </summary>
-    /// <typeparam name="TData">The type of the data.</typeparam>
-    public sealed class GraphQlResponse<TData>
+    public enum EnrichedSchemaEventType
     {
         /// <summary>
-        /// The data object. Can be null when no result is returned on an error occurred.
+        /// Schema created.
         /// </summary>
-        public TData Data { get; set; }
+        Created,
 
         /// <summary>
-        /// The errors. Can be null when valid.
+        /// Schema Deleted.
         /// </summary>
-        public GraphQlError[] Errors { get; set; }
+        Deleted,
+
+        /// <summary>
+        /// Schema Published.
+        /// </summary>
+        Published,
+
+        /// <summary>
+        /// Schema Unpublished.
+        /// </summary>
+        Unpublished,
+
+        /// <summary>
+        /// Schema updated.
+        /// </summary>
+        Updated
     }
 }

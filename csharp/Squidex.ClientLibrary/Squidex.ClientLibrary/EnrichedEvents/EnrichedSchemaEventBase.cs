@@ -5,22 +5,21 @@
 //  All rights reserved. Licensed under the MIT license.
 // ==========================================================================
 
-namespace Squidex.ClientLibrary
+using Newtonsoft.Json;
+using Squidex.ClientLibrary.Utils;
+
+namespace Squidex.ClientLibrary.EnrichedEvents
 {
     /// <summary>
-    /// A graphql response.
+    /// Abstract class for events on a schema.
     /// </summary>
-    /// <typeparam name="TData">The type of the data.</typeparam>
-    public sealed class GraphQlResponse<TData>
+    public abstract class EnrichedSchemaEventBase : EnrichedUserEventBase
     {
         /// <summary>
-        /// The data object. Can be null when no result is returned on an error occurred.
+        /// Schema changed.
         /// </summary>
-        public TData Data { get; set; }
-
-        /// <summary>
-        /// The errors. Can be null when valid.
-        /// </summary>
-        public GraphQlError[] Errors { get; set; }
+        [JsonConverter(typeof(NamedIdConverter))]
+        [JsonProperty("schemaId")]
+        public NamedId Schema { get; set; }
     }
 }
